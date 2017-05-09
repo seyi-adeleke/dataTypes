@@ -1,4 +1,9 @@
 exports.dataTypes = function(argument){
+   if(Array.isArray(argument)){
+       if (argument.length ===0){
+           return undefined;
+       }
+   }
     if(typeof argument === "undefined" || argument === null){
         return 'no value'
     }
@@ -17,14 +22,17 @@ exports.dataTypes = function(argument){
     if(argument > 100){
         return "more than 100";
     }
+
+
     if(Array.isArray(argument)){
+
         if(argument[2]=== null){
             return undefined;
         }
-        else if (argument.length === 0){
-            return undefined
-        }
+
+       else{
         return argument[2];
+        }
     }
     if(typeof argument === "function"){
         return argument(true);
